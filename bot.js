@@ -59,7 +59,7 @@ client.on('message', async message => {
             return message.reply("Sorry, but I can't give an answer to that buddy boy");
         }
         if(parameter === "i love you") {
-            return message.channel.sendMessage("I love you too " + message.user);
+            return message.channel.send("I love you too " + message.user);
         }
     }
 });
