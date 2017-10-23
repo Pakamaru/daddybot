@@ -61,16 +61,19 @@ client.on('message', async message => {
     }
 
     if(command === "avatar") {
-        var parameter = args.slice(0).join(' ').toLowerCase();
+        var parameter = args.slice(0).join(' ');
         if(!parameter) {
-            return message.author.avatarURL;
+            return message.channel.send(message.author.avatarURL);
         }
         var member = message.mentions.members.first();
         if(!member){
             return message.reply("maybe an actual person would make sense?");
         }
+        if(member.user.avatarURL == null){
+            return message.reply("Sorry but this person doesn't have an avatar kiddo");
+        }
         if(member){
-            return message.channel.member.avatarURL;
+            return message.channel.send("this is your avatar: " + member.user.avatarURL);
         }
     }
     
