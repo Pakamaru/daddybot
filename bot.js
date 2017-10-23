@@ -51,7 +51,7 @@ client.on('message', async message => {
   }
     
     if(command === "help") {
-        message.author.sendMessage("```Commands:```\n- help (Shows the commands and what they do in DM)\n- ping (Shows the latency in ms that the msg has to be send)\n- say [message to be send] (Sends a message of the input you give and deletes your message)\n- purge [number between 2 and 1000] (Bulk deletes the last messages sent)");
+        message.author.sendMessage("```Commands:\n- help (Shows the commands and what they do in DM)\n- ping (Shows the latency in ms that the msg has to be send)\n- say [message to be send] (Sends a message of the input you give and deletes your message)\n- purge [number between 2 and 1000] (Bulk deletes the last messages sent)```");
     }
 });
 
