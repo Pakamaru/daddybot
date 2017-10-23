@@ -26,8 +26,12 @@ client.on('message', async message => {
         const sayMessage = args.join(" ");
         // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
         message.delete().catch(O_o=>{});
-        // And we get the bot to say the thing:
-        message.channel.send(sayMessage);
+        if(!sayMessage){
+            message.channel.send("Please give me something to say you stupid bitch!");
+        } else {
+            // And we get the bot to say the thing:
+            message.channel.send(sayMessage);
+        }
     }
 });
 
