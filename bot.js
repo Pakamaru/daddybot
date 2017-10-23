@@ -54,12 +54,12 @@ client.on('message', async message => {
         message.author.sendMessage("```Commands:\n- help (Shows the commands and what they do in DM)\n- ping (Shows the latency in ms that the msg has to be send)\n- say [message to be send] (Sends a message of the input you give and deletes your message)\n- purge [number between 2 and 1000] (Bulk deletes the last messages sent)```");
     }
     if(command === "daddy") {
-        let parameter = args.slice(1).join(' ').toLowerCase();
+        var parameter = args.slice(0).join(' ').toLowerCase();
         if(!parameter) {
             return message.reply("Sorry, but I can't give an answer to that buddy boy");
         }
         if(parameter === "i love you") {
-            return message.channel.send("I love you too " + message.user);
+            return message.channel.send("I love you too " + message.author);
         }
     }
 });
