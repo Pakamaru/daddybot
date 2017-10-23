@@ -49,26 +49,6 @@ client.on('message', async message => {
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
   }
-    
-    if(command === "selfdestruct") {
-        message.channel.send("This message will self destruct in 10s!");
-        setTimeout(function(){ message.delete(1000); }, 10000);
-        setTimeout(function(){ message.channel.send("10"); }, 100);
-        setTimeout(function(){ message.channel.send("9"); }, 1000);
-        setTimeout(function(){ message.channel.send("8"); }, 2000);
-        setTimeout(function(){ message.channel.send("7"); }, 3000);
-        setTimeout(function(){ message.channel.send("6"); }, 4000);
-        setTimeout(function(){ message.channel.send("5"); }, 5000);
-        setTimeout(function(){ message.channel.send("4"); }, 6000);
-        setTimeout(function(){ message.channel.send("3"); }, 7000);
-        setTimeout(function(){ message.channel.send("2"); }, 8000);
-        setTimeout(function(){ message.channel.send("1"); }, 9000);
-        setTimeout(function(){ message.channel.send("0"); }, 10000);
-        setTimeout(function(){ message.channel.bulkDelete(11); }, 10000);
-        if(message.content === "This message will self destruct in 10s!") {
-            setTimeout(function(){ message.delete(1000); }, 10000);
-        }
-    }
 });
 
 client.login(auth.token);
