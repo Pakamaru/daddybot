@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Discord Bot",
   "author": "Amaru Signore (Pakamaru)",
-  "main": "bot.js",
-  "scripts": {
-    "start": "node bot.js"
-  },
   "engines": {
     "node": ">= 7.6.0"
   },
