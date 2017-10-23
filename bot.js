@@ -35,20 +35,44 @@ client.on('message', async message => {
     }
     
     if(command === "purge") {
-    // This command removes all messages from all users in the channel, up to 100.
-    
-    // get the delete count, as an actual number.
-    const deleteCount = parseInt(args[0], 10);
-    
-    // Ooooh nice, combined conditions. <3
-    if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
-      return message.reply("Please provide a number between 2 and 1000 for the number of messages to delete");
-    
-    // So we get our messages, and delete them. Simple enough, right?
-    const fetched = await message.channel.fetchMessages({count: deleteCount});
-    message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-  }
+        // This command removes all messages from all users in the channel, up to 100.
+
+        // get the delete count, as an actual number.
+        const deleteCount = parseInt(args[0], 10);
+
+        // Ooooh nice, combined conditions. <3
+        if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
+          return message.reply("Please provide a number between 2 and 1000 for the number of messages to delete");
+
+        // So we get our messages, and delete them. Simple enough, right?
+        const fetched = await message.channel.fetchMessages({count: deleteCount});
+        message.channel.bulkDelete(fetched)
+          .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+    }
+
+    if(command === "daddy") {
+        var parameter = args.slice(0).join(' ').toLowerCase();
+        if(!parameter) {
+            return message.reply("Sorry, but I can't give an answer to that buddy boy");
+        }
+        if(parameter === "i love you") {
+            return message.channel.send("I love you too " + message.author);
+        }
+    }
+
+    if(command === "avatar") {
+        var parameter = args.slice(0).join(' ').toLowerCase();
+        if(!parameter) {
+            return message.author.avatarURL;
+        }
+        var member = message.mentions.members.first();
+        if(!member){
+            return message.reply("maybe an actual person would make sense?");
+        }
+        if(member){
+            return message.channel.member.avatarURL;
+        }
+    }
     
     if(command === "help") {
         message.author.sendMessage("```Commands:"+
@@ -58,15 +82,6 @@ client.on('message', async message => {
             "\n- purge [number between 2 and 1000] (Bulk deletes the last messages sent)"+
             "\n- daddy i love you (Show daddy some love and he will give some back!)"+
             "```");
-    }
-    if(command === "daddy") {
-        var parameter = args.slice(0).join(' ').toLowerCase();
-        if(!parameter) {
-            return message.reply("Sorry, but I can't give an answer to that buddy boy");
-        }
-        if(parameter === "i love you") {
-            return message.channel.send("I love you too " + message.author);
-        }
     }
 });
 
