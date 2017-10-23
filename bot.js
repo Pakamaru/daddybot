@@ -84,6 +84,7 @@ client.on('message', async message => {
             "\n- say [message to be send] (Sends a message of the input you give and deletes your message)"+
             "\n- purge [number between 2 and 1000] (Bulk deletes the last messages sent)"+
             "\n- daddy i love you (Show daddy some love and he will give some back!)"+
+            "\n- avatar [optional user] (Shows your avatarurl with an empty parameter or shows someone else their avatarurl if you tag them)"+
             "```");
     }
 });
