@@ -13,4 +13,4 @@ client.on('message', message => {
         }
 });
 
-client.login(process.env.auth.token);
+client.login(auth.token);
