@@ -7,7 +7,7 @@ client.on('ready', () => {
     client.user.setGame("with little girls");
 });
 
-client.on('message', async message => {
+client.on("message", async message => {
     if(message.author.bot) return;
 
     if(message.content.indexOf(auth.prefix) !== 0) return;
