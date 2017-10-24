@@ -92,30 +92,30 @@ client.on('message', async message => {
         }
     }
 
-    if(command === "anime") {
-        return ;
-        var parameter = args.slice(0).join(' ').toLowerCase();
-        var amount = parameter.slice(0);
-        var tags = parameter.slice(0);
-        if(isNaN(amount)){
-            amount = 1;
-        }
-        //Searching by tags
-        getter.get(1, 0, "brown_hair+-red*", (xml) =>{
-            //work with XML here.
-        }
-
-        //Retrieving a random image with matching tags
-        getter.getRandom("brown_hair+red_shirt+-dress*", (url)=>{
-            //do something with URL here
-        }
-
-
-
-
-        message.reply("ello");
-        return message.channel.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
-    }
+    // if(command === "anime") {
+    //     return ;
+    //     var parameter = args.slice(0).join(' ').toLowerCase();
+    //     var amount = parameter.slice(0);
+    //     var tags = parameter.slice(0);
+    //     if(isNaN(amount)){
+    //         amount = 1;
+    //     }
+    //     //Searching by tags
+    //     getter.get(1, 0, "brown_hair+-red*", (xml) =>{
+    //         //work with XML here.
+    //     })
+    //
+    //     //Retrieving a random image with matching tags
+    //     getter.getRandom("brown_hair+red_shirt+-dress*", (url)=>{
+    //         //do something with URL here
+    //     })
+    //
+    //
+    //
+    //
+    //     message.reply("ello");
+    //     return message.channel.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
+    // }
     
     if(command === "help") {
         message.author.sendMessage("```Commands:"+
