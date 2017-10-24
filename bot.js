@@ -136,7 +136,6 @@ client.on('message', async message => {
         message.channel.send({
             "embed": {
                 "title": m,
-                "description": "",
                 "url": "",
                 "color": 7135306,
                 "timestamp": "2017-10-24T12:54:33.836Z",
@@ -154,25 +153,25 @@ client.on('message', async message => {
                     "name": "this is the playercard of " + m.username,
                     "url": "",
                     "icon_url": img
-                }
-                // "fields": [
-                //     {
-                //         "name": "Username:",
-                //         "value": m.username
-                //     },
-                //     {
-                //         "name": "UserID:",
-                //         "value": m.id
-                //     },
-                //     {
-                //         "name": "Account created:",
-                //         "value": m.createdAt
-                //     },
-                //     {
-                //         "name": "Usertag:",
-                //         "value": m.tag
-                //     }
-                // ]
+                },
+                "fields": [
+                    {
+                        "name": "Username:",
+                        "value": m.username
+                    },
+                    {
+                        "name": "UserID:",
+                        "value": m.id
+                    },
+                    {
+                        "name": "Account created:",
+                        "value": m.createdAt
+                    },
+                    {
+                        "name": "Usertag:",
+                        "value": m.tag
+                    }
+                ]
             }
         });
     }
