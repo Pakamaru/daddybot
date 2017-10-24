@@ -129,6 +129,7 @@ client.on('message', async message => {
     }
 
     function embededCard(member) {
+        return message.reply(member);
         var img = (member.user.avatarURL);
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
