@@ -129,45 +129,46 @@ client.on('message', async message => {
     }
 
     function embededCard(m) {
-        var img = (m.avatarURL);
-        if(img == null){
-            img = "https://cdn.discordapp.com/embed/avatars/0.png";
+        var person__ = m;
+        var img__ = (person__.avatarURL);
+        if(img__ == null){
+            img__ = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
         return message.channel.send({
             embed: {
                 color: 7135306,
                 author: {
-                    name: "this is the playercard of" + m.username,
-                    icon_url: ""+img
+                    name: "this is the playercard of" + person__.username,
+                    icon_url: ""+img__
                 },
-                title: ""+m,
+                title: ""+person__,
                 thumbnail: {
-                    url: ""+img
+                    url: ""+img__
                 },
                 image: {
-                    url: ""+img
+                    url: ""+img__
                 },
                 fields: [
                     {
                         name: "Username:",
-                        value: ""+m.username
+                        value: ""+person__.username
                     },
                     {
                         name: "UserID:",
-                        value: ""+m.id
+                        value: ""+person__.id
                     },
                     {
                         name: "Account created:",
-                        value: ""+m.createdAt
+                        value: ""+person__.createdAt
                     },
                     {
                         name: "Usertag:",
-                        value: ""+m.tag
+                        value: ""+person__.tag
                     }
                 ],
                 timestamp: "2017-10-24T12:54:33.836Z",
                 footer: {
-                    icon_url: ""+img,
+                    icon_url: ""+img__,
                     text: "footer text"
                 }
             }
