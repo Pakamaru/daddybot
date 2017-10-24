@@ -73,7 +73,7 @@ client.on('message', async message => {
             return message.reply("Sorry but this person doesn't have an avatar kiddo");
         }
         if(member){
-            return message.channel.sendMessage("", {file: member.user.avatarURL});
+            return message.channel.sendFile("", member.user.avatarURL, null, "TEST");
         }
     }
     
