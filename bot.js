@@ -135,7 +135,7 @@ client.on('message', async message => {
         }
         message.channel.send({
             "embed": {
-                "title": m.user,
+                "title": m,
                 "description": "",
                 "url": "",
                 "color": 7135306,
@@ -162,15 +162,15 @@ client.on('message', async message => {
                     },
                     {
                         "name": "UserID:",
-                        "value": m.user.id
+                        "value": m.id
                     },
                     {
                         "name": "Account created:",
-                        "value": m.user.createdAt
+                        "value": m.createdAt
                     },
                     {
                         "name": "Usertag:",
-                        "value": m.user.tag
+                        "value": m.tag
                     }
                 ]
             }
