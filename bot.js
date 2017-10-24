@@ -131,7 +131,7 @@ client.on('message', async message => {
     function embededCard(member) {
         message.channel.send({
             "embed": {
-                "title": "this is the playercard of " + member,
+                "title": "this is the playercard of " + member.username,
                 "description": "this supports [named links](https://discordapp.com) on top of the previously shown subset of markdown. ```\nyes, even code blocks```",
                 "url": "https://discordapp.com",
                 "color": 7135306,
