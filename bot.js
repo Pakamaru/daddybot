@@ -133,26 +133,26 @@ client.on('message', async message => {
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
-        message.channel.send({
+        return message.channel.send({
             embed: {
                 title: m,
                 url: "",
                 color: 7135306,
                 timestamp: "2017-10-24T12:54:33.836Z",
                 footer: {
-                    icon_url: img,
+                    icon_url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048",
                     text: "footer text"
                 },
                 thumbnail: {
-                    url: img
+                    url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
                 },
                 image: {
-                    url: img
+                    url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
                 },
                 author: {
                     name: "this is the playercard of" + m.username,
                     url: "",
-                    icon_url: img
+                    icon_url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
                 },
                 fields: [
                     {
