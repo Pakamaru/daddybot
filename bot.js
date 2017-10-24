@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const package = require('./package.json');
+const getter = require('booru-getter')
 
 client.on('ready', () => {
     client.user.setGame("with little girls");
@@ -77,13 +78,41 @@ client.on('message', async message => {
         }
     }
 
+    if(command === "stats"){
+        var parameter = args.slice(0).join(' ');
+        if(!parameter){
+            return embededCard(message.author);
+        }
+        var member = message.mentions.members.first();
+        if(!member){
+            return message.reply("maybe an actual person would make sense?");
+        }
+        if(member){
+            return embededCard(member);
+        }
+    }
+
     if(command === "anime") {
+        return ;
         var parameter = args.slice(0).join(' ').toLowerCase();
         var amount = parameter.slice(0);
         var tags = parameter.slice(0);
         if(isNaN(amount)){
             amount = 1;
         }
+        //Searching by tags
+        getter.get(1, 0, "brown_hair+-red*", (xml) =>{
+            //work with XML here.
+        }
+
+        //Retrieving a random image with matching tags
+        getter.getRandom("brown_hair+red_shirt+-dress*", (url)=>{
+            //do something with URL here
+        }
+
+
+
+
         message.reply("ello");
         return message.channel.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
     }
@@ -97,6 +126,57 @@ client.on('message', async message => {
             "\n- daddy i love you (Show daddy some love and he will give some back!)"+
             "\n- avatar [optional user] (Shows your avatarurl with an empty parameter or shows someone else their avatarurl if you tag them)"+
             "```");
+    }
+
+    function embededCard(member) {
+        message.channel.send({
+            "embed": {
+                "title": "this is the playercard of " + member,
+                "description": "this supports [named links](https://discordapp.com) on top of the previously shown subset of markdown. ```\nyes, even code blocks```",
+                "url": "https://discordapp.com",
+                "color": 7135306,
+                "timestamp": "2017-10-24T12:54:33.836Z",
+                "footer": {
+                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+                    "text": "footer text"
+                },
+                "thumbnail": {
+                    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                },
+                "image": {
+                    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                },
+                "author": {
+                    "name": "author name",
+                    "url": "https://discordapp.com",
+                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                },
+                "fields": [
+                {
+                    "name": "🤔",
+                    "value": "some of these properties have certain limits..."
+                },
+                {
+                    "name": "😱",
+                    "value": "try exceeding some of them!"
+                },
+                {
+                    "name": "🙄",
+                    "value": "an informative error should show up, and this view will remain as-is until all issues are fixed"
+                },
+                {
+                    "name": "<:thonkang:219069250692841473>",
+                    "value": "these last two",
+                    "inline": true
+                },
+                {
+                    "name": "<:thonkang:219069250692841473>",
+                    "value": "are inline fields",
+                    "inline": true
+                }
+                ]
+            }
+        });
     }
 });
 
