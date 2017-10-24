@@ -85,7 +85,7 @@ client.on('message', async message => {
             amount = 1;
         }
         message.reply("ello");
-        return client.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
+        return message.channel.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
     }
     
     if(command === "help") {
