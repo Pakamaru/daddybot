@@ -88,7 +88,7 @@ client.on('message', async message => {
             return message.reply("maybe an actual person would make sense?");
         }
         if(member){
-            return embededCard(member);
+            return embededCard(member.user);
         }
     }
 
@@ -129,8 +129,7 @@ client.on('message', async message => {
     }
 
     function embededCard(m) {
-        return message.reply("user: " + m.avatarURL);
-        var img = (m.user.avatarURL);
+        var img = (m.avatarURL);
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
