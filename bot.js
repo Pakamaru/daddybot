@@ -133,44 +133,43 @@ client.on('message', async message => {
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
-        return message.channel.send(img);
         message.channel.send({
-            "embed": {
-                "title": "\ m",
-                "url": "",
-                "color": 7135306,
-                "timestamp": "2017-10-24T12:54:33.836Z",
-                "footer": {
-                    "icon_url": "\ img",
-                    "text": "footer text"
+            embed: {
+                title: m,
+                url: "",
+                color: 7135306,
+                timestamp: "2017-10-24T12:54:33.836Z",
+                footer: {
+                    icon_url: img,
+                    text: "footer text"
                 },
-                "thumbnail": {
-                    "url": "\ img"
+                thumbnail: {
+                    url: img
                 },
-                "image": {
-                    "url": "\ img"
+                image: {
+                    url: img
                 },
-                "author": {
-                    "name": "this is the playercard of \"  m.username",
-                    "url": "",
-                    "icon_url": "\" img"
+                author: {
+                    name: "this is the playercard of" + m.username,
+                    url: "",
+                    icon_url: img
                 },
-                "fields": [
+                fields: [
                     {
-                        "name": "Username:",
-                        "value": "\ m.username"
+                        name: "Username:",
+                        value: m.username
                     },
                     {
-                        "name": "UserID:",
-                        "value": "\ m.id"
+                        name: "UserID:",
+                        value: m.id
                     },
                     {
-                        "name": "Account created:",
-                        "value": "\ m.createdAt"
+                        name: "Account created:",
+                        value: m.createdAt
                     },
                     {
-                        "name": "Usertag:",
-                        "value": "\ m.tag"
+                        name: "Usertag:",
+                        value: m.tag
                     }
                 ]
             }
