@@ -129,51 +129,49 @@ client.on('message', async message => {
     }
 
     function embededCard(member) {
+        var img = (member.user.avatarURL);
+        if(img == null){
+            img = "https://cdn.discordapp.com/embed/avatars/0.png";
+        }
         message.channel.send({
             "embed": {
-                "title": "this is the playercard of " + member.username,
-                "description": "this supports [named links](https://discordapp.com) on top of the previously shown subset of markdown. ```\nyes, even code blocks```",
-                "url": "https://discordapp.com",
+                "title": member.user,
+                "description": "",
+                "url": "",
                 "color": 7135306,
                 "timestamp": "2017-10-24T12:54:33.836Z",
                 "footer": {
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+                    "icon_url": img,
                     "text": "footer text"
                 },
                 "thumbnail": {
-                    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                    "url": img
                 },
                 "image": {
-                    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                    "url": img
                 },
                 "author": {
-                    "name": "author name",
-                    "url": "https://discordapp.com",
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+                    "name": "this is the playercard of " + member.username,
+                    "url": "",
+                    "icon_url": img
                 },
                 "fields": [
-                {
-                    "name": "🤔",
-                    "value": "some of these properties have certain limits..."
-                },
-                {
-                    "name": "😱",
-                    "value": "try exceeding some of them!"
-                },
-                {
-                    "name": "🙄",
-                    "value": "an informative error should show up, and this view will remain as-is until all issues are fixed"
-                },
-                {
-                    "name": "<:thonkang:219069250692841473>",
-                    "value": "these last two",
-                    "inline": true
-                },
-                {
-                    "name": "<:thonkang:219069250692841473>",
-                    "value": "are inline fields",
-                    "inline": true
-                }
+                    {
+                        "name": "Username:",
+                        "value": member.username
+                    },
+                    {
+                        "name": "UserID:",
+                        "value": member.user.id
+                    },
+                    {
+                        "name": "Account created:",
+                        "value": member.user.createdAt
+                    },
+                    {
+                        "name": "Usertag:",
+                        "value": member.user.tag
+                    }
                 ]
             }
         });
