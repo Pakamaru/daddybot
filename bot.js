@@ -133,7 +133,7 @@ client.on('message', async message => {
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
-        return message.reply(img);
+        return message.channel.send(img);
         message.channel.send({
             "embed": {
                 "title": "\ m",
