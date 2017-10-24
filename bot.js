@@ -79,12 +79,13 @@ client.on('message', async message => {
 
     if(command === "anime") {
         var parameter = args.slice(0).join(' ').toLowerCase();
-        var amount = parameter.splice(0, 1);
+        var amount = parameter.slice(0);
         var tags = parameter.slice(0);
         if(isNaN(amount)){
             amount = 1;
         }
-        return linkHostname("http://safebooru.org/index.php?page=dapi&s=post&q=index");
+        message.reply("ello");
+        return Client.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
     }
     
     if(command === "help") {
