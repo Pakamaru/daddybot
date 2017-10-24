@@ -152,7 +152,7 @@ client.on('message', async message => {
                 "author": {
                     "name": "this is the playercard of \"  m.username",
                     "url": "",
-                    "icon_url": "\ img"
+                    "icon_url": "\" img"
                 },
                 "fields": [
                     {
