@@ -154,25 +154,25 @@ client.on('message', async message => {
                     "name": "this is the playercard of " + m.username,
                     "url": "",
                     "icon_url": img
-                },
-                "fields": [
-                    {
-                        "name": "Username:",
-                        "value": m.username
-                    },
-                    {
-                        "name": "UserID:",
-                        "value": m.id
-                    },
-                    {
-                        "name": "Account created:",
-                        "value": m.createdAt
-                    },
-                    {
-                        "name": "Usertag:",
-                        "value": m.tag
-                    }
-                ]
+                }
+                // "fields": [
+                //     {
+                //         "name": "Username:",
+                //         "value": m.username
+                //     },
+                //     {
+                //         "name": "UserID:",
+                //         "value": m.id
+                //     },
+                //     {
+                //         "name": "Account created:",
+                //         "value": m.createdAt
+                //     },
+                //     {
+                //         "name": "Usertag:",
+                //         "value": m.tag
+                //     }
+                // ]
             }
         });
     }
