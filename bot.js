@@ -128,15 +128,15 @@ client.on('message', async message => {
             "```");
     }
 
-    function embededCard(member) {
-        return message.reply(member.user);
-        var img = (member.user.avatarURL);
+    function embededCard(m) {
+        return message.reply(m.user);
+        var img = (m.user.avatarURL);
         if(img == null){
             img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
         message.channel.send({
             "embed": {
-                "title": member.user,
+                "title": m.user,
                 "description": "",
                 "url": "",
                 "color": 7135306,
@@ -152,26 +152,26 @@ client.on('message', async message => {
                     "url": img
                 },
                 "author": {
-                    "name": "this is the playercard of " + member.username,
+                    "name": "this is the playercard of " + m.username,
                     "url": "",
                     "icon_url": img
                 },
                 "fields": [
                     {
                         "name": "Username:",
-                        "value": member.username
+                        "value": m.username
                     },
                     {
                         "name": "UserID:",
-                        "value": member.user.id
+                        "value": m.user.id
                     },
                     {
                         "name": "Account created:",
-                        "value": member.user.createdAt
+                        "value": m.user.createdAt
                     },
                     {
                         "name": "Usertag:",
-                        "value": member.user.tag
+                        "value": m.user.tag
                     }
                 ]
             }
