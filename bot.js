@@ -138,36 +138,36 @@ client.on('message', async message => {
                 color: 7135306,
                 author: {
                     name: "this is the playercard of" + m.username,
-                    icon_url: img
+                    icon_url: ""+img
                 },
-                title: m,
+                title: ""+m,
                 thumbnail: {
-                    url: img
+                    url: ""+img
                 },
                 image: {
-                    url: img
+                    url: ""+img
                 },
                 fields: [
                     {
                         name: "Username:",
-                        value: m.username
+                        value: ""+m.username
                     },
                     {
                         name: "UserID:",
-                        value: m.id
+                        value: ""+m.id
                     },
                     {
                         name: "Account created:",
-                        value: m.createdAt
+                        value: ""+m.createdAt
                     },
                     {
                         name: "Usertag:",
-                        value: m.tag
+                        value: ""+m.tag
                     }
                 ],
                 timestamp: "2017-10-24T12:54:33.836Z",
                 footer: {
-                    icon_url: img,
+                    icon_url: ""+img,
                     text: "footer text"
                 }
             }
