@@ -138,10 +138,10 @@ client.on('message', async message => {
             embed: {
                 color: 7135306,
                 author: {
-                    name: "this is the playercard of" + person__.username,
+                    name: "This is the playercard of " + person__.username,
                     icon_url: ""+img__
                 },
-                title: ""+person__,
+                title: ""+person__.username.toUpperCase(),
                 thumbnail: {
                     url: ""+img__
                 },
@@ -169,7 +169,7 @@ client.on('message', async message => {
                 timestamp: "2017-10-24T12:54:33.836Z",
                 footer: {
                     icon_url: ""+img__,
-                    text: "footer text"
+                    text: "HERE COMES THE DATE OF JOIN OF THE GUILD"
                 }
             }
         });
