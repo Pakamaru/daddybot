@@ -73,8 +73,18 @@ client.on('message', async message => {
             return message.reply("Sorry but this person doesn't have an avatar kiddo");
         }
         if(member){
-            return message.channel.sendFile("", member.user.avatarURL, null, "TEST");
+            return message.channel.send("" + member.user.avatarURL);
         }
+    }
+
+    if(command === "anime") {
+        var parameter = args.slice(0).join(' ').toLowerCase();
+        var amount = parameter.splice(0, 1);
+        var tags = parameter.slice(0);
+        if(isNaN(amount)){
+            amount = 1;
+        }
+        return linkHostname("http://safebooru.org/index.php?page=dapi&s=post&q=index");
     }
     
     if(command === "help") {
