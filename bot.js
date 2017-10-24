@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const package = require('./package.json');
-const getter = require('booru-getter')
+// const getter = require('booru-getter')
 
 client.on('ready', () => {
     client.user.setGame("with little girls");
