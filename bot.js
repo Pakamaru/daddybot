@@ -135,24 +135,17 @@ client.on('message', async message => {
         }
         return message.channel.send({
             embed: {
-                title: m,
-                url: "",
                 color: 7135306,
-                timestamp: "2017-10-24T12:54:33.836Z",
-                footer: {
-                    icon_url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048",
-                    text: "footer text"
-                },
-                thumbnail: {
-                    url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
-                },
-                image: {
-                    url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
-                },
                 author: {
                     name: "this is the playercard of" + m.username,
-                    url: "",
-                    icon_url: "https://cdn.discordapp.com/avatars/181749465089048576/1780807d8543943c166f4c8a1c433b0d.png?size=2048"
+                    icon_url: img
+                },
+                title: m,
+                thumbnail: {
+                    url: img
+                },
+                image: {
+                    url: img
                 },
                 fields: [
                     {
@@ -171,7 +164,12 @@ client.on('message', async message => {
                         name: "Usertag:",
                         value: m.tag
                     }
-                ]
+                ],
+                timestamp: "2017-10-24T12:54:33.836Z",
+                footer: {
+                    icon_url: img,
+                    text: "footer text"
+                }
             }
         });
     }
