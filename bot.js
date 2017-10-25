@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const package = require('./package.json');
-// const getter = require('booru-getter')
 
 client.on('ready', () => {
     client.user.setGame("with little girls");
@@ -93,6 +92,14 @@ client.on('message', async message => {
     }
 
     if(command === "hug"){
+        var img__ = new XMLHttpRequest();
+        img__.onreadystatechange = function () {
+            if(this.readyState == 4 && this.status == 200){
+                getImages(this);
+            }
+        };
+        img__.open("GET", "http://safebooru.org/index.php?page=dapi&s=post&q=index", true);
+        img__.send();
         var parameter = args.slice(0).join(' ').toLowerCase();
         if(!parameter)
             return message.channel.send(message.author + " is a loner and hugs himself :cry:");
@@ -102,31 +109,6 @@ client.on('message', async message => {
         if(member)
             return message.channel.send("Awww, "+message.author+" is giving a warm hug to "+member.user);
     }
-
-    // if(command === "anime") {
-    //     return ;
-    //     var parameter = args.slice(0).join(' ').toLowerCase();
-    //     var amount = parameter.slice(0);
-    //     var tags = parameter.slice(0);
-    //     if(isNaN(amount)){
-    //         amount = 1;
-    //     }
-    //     //Searching by tags
-    //     getter.get(1, 0, "brown_hair+-red*", (xml) =>{
-    //         //work with XML here.
-    //     })
-    //
-    //     //Retrieving a random image with matching tags
-    //     getter.getRandom("brown_hair+red_shirt+-dress*", (url)=>{
-    //         //do something with URL here
-    //     })
-    //
-    //
-    //
-    //
-    //     message.reply("ello");
-    //     return message.channel.sendFile("", "http://safebooru.org/index.php?page=dapi&s=post&q=index&limit=1", null, "TEST");
-    // }
     
     if(command === "help") {
         message.author.sendMessage("```Commands:"+
@@ -183,6 +165,17 @@ client.on('message', async message => {
                 }
             }
         });
+    }
+
+    function getImages(xml) {
+        var x, i, xmlDoc, txt;
+        xmlDoc = xml.responseXML;
+        txt = "";
+        x = xmlDoc.getElementsByTagName("post");
+        for( i=0; i<x.length; i++){
+            txt+=x[i];
+        }
+        message.reply(txt);
     }
 });
 
