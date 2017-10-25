@@ -92,6 +92,17 @@ client.on('message', async message => {
         }
     }
 
+    if(command === "hug"){
+        var parameter = args.slice(0).join(' ').toLowerCase();
+        if(!parameter)
+            return message.channel.send(message.author + " is a loner and hugs himself :cry:");
+        var member = message.mentions.members.first();
+        if(!member)
+            return message.channel.send(message.author+" is hugging their imaginary friend named: "+parameter);
+        if(member)
+            return message.channel.send("Awww, "+message.author+" is giving a warm hug to "+member.user);
+    }
+
     // if(command === "anime") {
     //     return ;
     //     var parameter = args.slice(0).join(' ').toLowerCase();
@@ -129,47 +140,46 @@ client.on('message', async message => {
     }
 
     function embededCard(m) {
-        var person__ = m;
-        var img__ = (person__.avatarURL);
-        if(img__ == null){
-            img__ = "https://cdn.discordapp.com/embed/avatars/0.png";
+        var img = (m.avatarURL);
+        if(img == null){
+            img = "https://cdn.discordapp.com/embed/avatars/0.png";
         }
         return message.channel.send({
             embed: {
                 color: 7135306,
                 author: {
-                    name: "This is the playercard of " + person__.username,
-                    icon_url: ""+img__
+                    name: "this is the playercard of" + m.username,
+                    icon_url: img
                 },
-                title: ""+person__.username.toUpperCase(),
+                title: m,
                 thumbnail: {
-                    url: ""+img__
+                    url: img
                 },
                 image: {
-                    url: ""+img__
+                    url: img
                 },
                 fields: [
                     {
                         name: "Username:",
-                        value: ""+person__.username
+                        value: m.username
                     },
                     {
                         name: "UserID:",
-                        value: ""+person__.id
+                        value: m.id
                     },
                     {
                         name: "Account created:",
-                        value: ""+person__.createdAt
+                        value: m.createdAt
                     },
                     {
                         name: "Usertag:",
-                        value: ""+person__.tag
+                        value: m.tag
                     }
                 ],
                 timestamp: "2017-10-24T12:54:33.836Z",
                 footer: {
-                    icon_url: ""+img__,
-                    text: "HERE COMES THE DATE OF JOIN OF THE GUILD"
+                    icon_url: img,
+                    text: "footer text"
                 }
             }
         });
