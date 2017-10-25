@@ -92,14 +92,6 @@ client.on('message', async message => {
     }
 
     if(command === "hug"){
-        var img__ = new XMLHttpRequest();
-        img__.onreadystatechange = function () {
-            if(this.readyState == 4 && this.status == 200){
-                getImages(this);
-            }
-        };
-        img__.open("GET", "http://safebooru.org/index.php?page=dapi&s=post&q=index", true);
-        img__.send();
         var parameter = args.slice(0).join(' ').toLowerCase();
         if(!parameter)
             return message.channel.send(message.author + " is a loner and hugs himself :cry:");
@@ -108,6 +100,17 @@ client.on('message', async message => {
             return message.channel.send(message.author+" is hugging their imaginary friend named: "+parameter);
         if(member)
             return message.channel.send("Awww, "+message.author+" is giving a warm hug to "+member.user);
+    }
+
+    if(command === "kiss"){
+        var parameter = args.slice(0).join(' ').toLowerCase();
+        if(!parameter)
+            return message.channel.send(message.author + " is looking for someone to kiss!");
+        var member = message.mentions.members.first();
+        if(!member)
+            return message.reply("Sorry buddy I can't help you out on this one.");
+        if(member)
+            return message.channel.send("OMG, "+message.author+" is giving a k-kiss?!!!? to "+member.user+"!!!!!");
     }
     
     if(command === "help") {
@@ -165,17 +168,6 @@ client.on('message', async message => {
                 }
             }
         });
-    }
-
-    function getImages(xml) {
-        var x, i, xmlDoc, txt;
-        xmlDoc = xml.responseXML;
-        txt = "";
-        x = xmlDoc.getElementsByTagName("post");
-        for( i=0; i<x.length; i++){
-            txt+=x[i];
-        }
-        message.reply(txt);
     }
 });
 
