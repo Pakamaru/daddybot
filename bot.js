@@ -117,7 +117,7 @@ client.on('message', async message => {
     if(command === "marrylist"){
         var list = "List of married people:\n";
         for(var i=0; i<marriedPeople.length; i++){
-            list+= marriedPeople.nameOne+" :heart: "+marriedPeople.nameTwo+"\n";
+            list+= marriedPeople.couple[i].nameOne+" :heart: "+marriedPeople.couple[i].nameTwo+"\n";
         }
         return message.channel.send(list);
     }
