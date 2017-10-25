@@ -1,7 +1,27 @@
 {
-  "couple":{
-    "nameOne": "Pakamaru",
-    "nameTwo": "Cumsniffer",
-    "MarriedAt": "2017-25-10"
-  }
+  "users":[{
+    "name": "Pakamaru",
+    "ID": "181749465089048576",
+    "tokens": 0,
+    "relation":{
+      "married": "false",
+      "marriedTo": "",
+      "marriedAt": "",
+      "requested": "false",
+      "openRequest": "false",
+      "requestedTo": ""
+    }
+  },{
+    "name": "Cumsniffer",
+    "ID": "181457419698700288",
+    "tokens": 0,
+    "relation":{
+      "married": "false",
+      "marriedTo": "",
+      "marriedAt": "",
+      "requested": "false",
+      "openRequest": "false",
+      "requestedTo": ""
+    }
+  }]
 }

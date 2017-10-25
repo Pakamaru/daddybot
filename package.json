@@ -12,6 +12,7 @@
     "danbooru": "^2.0.3",
     "discord.io": "^2.5.3",
     "discord.js": "^11.2.1",
+    "sqlite": "^2.8.0",
     "winston": "^2.4.0"
   }
 }
