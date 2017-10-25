@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const package = require('./package.json');
+const marriedPeople = require('./marryList.json');
 
 client.on('ready', () => {
     client.user.setGame("with little girls");
@@ -111,6 +112,14 @@ client.on('message', async message => {
             return message.reply("Sorry buddy I can't help you out on this one.");
         if(member)
             return message.channel.send("OMG, "+message.author+" is giving a k-kiss?!!!? to "+member.user+"!!!!!");
+    }
+
+    if(command === "marrylist"){
+        var list = "List of married people:\n";
+        for(var i=0; i<marriedPeople.length; i++){
+            list+= marriedPeople.nameOne+" :heart: "+marriedPeople.nameTwo+"\n";
+        }
+        return message.channel.send(list);
     }
     
     if(command === "help") {

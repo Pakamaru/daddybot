@@ -1,0 +1,17 @@
+//{
+//  "compilerOptions": {
+//    "module": "commonjs",
+//    "target": "es5",
+//    "sourceMap": true
+//  },
+//  "exclude": [
+//    "node_modules"
+//  ]
+//}
+[
+  {
+    "nameOne": "Pakamaru",
+    "nameTwo": "Cumsniffer",
+    "MarriedAt": "2017-25-10"
+  }
+]
