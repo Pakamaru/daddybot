@@ -45,7 +45,7 @@ client.once('ready', () => {
 });
 
 client.on('ready', () => {
-    client.user.setGame("with little girls");
+    client.user.setGame("#help for commands");
 });
 
 client.on('message', async message => {
