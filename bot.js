@@ -69,8 +69,8 @@ client.on('message', async message => {
     marryModule.marry(client, message, args, command);
     commandsHelp+=marryModule.loadHelp();
 
-    staffModule.staff(client, message, args, command);
-    commandsHelp+=staffModule.loadHelp();
+//     staffModule.staff(client, message, args, command);
+//     commandsHelp+=staffModule.loadHelp();
 
     tagModule.tags(client, message, args, command, Tags);
     commandsHelp+=tagModule.loadHelp();
