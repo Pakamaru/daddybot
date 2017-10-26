@@ -1,13 +1,48 @@
 const Discord = require('discord.js');
-const sql = require("sqlite");
-sql.open("./users.sqlite");
+const Sequelize = require('sequelize');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const package = require('./package.json');
 const data = require('./marryList.json');
 const marryModule = require('./Modules/Marry.js');
 const pointsModule = require('./Modules/Points.js');
-const userBasedModule = require('./Modules/Userbased.js')
+const userBasedModule = require('./Modules/Userbased.js');
+const staffModule = require('./Modules/Staff.js');
+const tagModule = require('./Modules/Tags.js')
+
+const sequelize = new Sequelize('database', 'user', 'password', {
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: false,
+    // SQLite only
+    storage: 'database.sqlite',
+});
+/*
+ * equivalent to: CREATE TABLE tags(
+ * name VARCHAR(255),
+ * description TEXT,
+ * username VARCHAR(255),
+ * usage INT
+ * );
+ */
+
+const Tags = sequelize.define('tags', {
+    name: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    description: Sequelize.TEXT,
+    username: Sequelize.STRING,
+    usage_count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+    },
+});
+
+client.once('ready', () => {
+    Tags.sync();
+});
 
 client.on('ready', () => {
     client.user.setGame("with little girls");
@@ -20,6 +55,7 @@ client.on('message', async message => {
 
     const args = message.content.slice(auth.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+    const commandArgs = args.join(' ');
     var commandsHelp = "```Commands:```";
 
     //MODULES LOAD HERE
@@ -27,27 +63,32 @@ client.on('message', async message => {
     userBasedModule.userBased(client, message, args, command);
     commandsHelp+=userBasedModule.loadHelp();
 
-    pointsModule.points(client, message, args, command);
-    commandsHelp+=pointsModule.loadHelp();
+    // pointsModule.points(client, message, args, command);
+    // commandsHelp+=pointsModule.loadHelp();
 
     marryModule.marry(client, message, args, command);
     commandsHelp+=marryModule.loadHelp();
 
-    if(command === "purge") {
-        // This command removes all messages from all users in the channel, up to 100.
+    staffModule.staff(client, message, args, command);
+    commandsHelp+=staffModule.loadHelp();
 
-        // get the delete count, as an actual number.
-        const deleteCount = parseInt(args[0], 10);
+    tagModule.tags(client, message, args, command, Tags);
+    commandsHelp+=tagModule.loadHelp();
 
-        // Ooooh nice, combined conditions. <3
-        if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
-          return message.reply("Please provide a number between 2 and 1000 for the number of messages to delete");
 
-        // So we get our messages, and delete them. Simple enough, right?
-        const fetched = await message.channel.fetchMessages({count: deleteCount});
-        message.channel.bulkDelete(fetched)
-          .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     if(command === "help") {
         commandsHelp+="";
